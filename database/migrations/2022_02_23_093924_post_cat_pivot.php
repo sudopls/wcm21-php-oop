@@ -13,8 +13,10 @@ class PostCatPivot extends Migration
      */
     public function up()
     {
-        $table->foreignId('category_id')->references('id')->on('post_categories');
-        $table->foreignId('post_id')->references('id')->on('posts');
+        Schema::create('post_categories', function (Blueprint $table) {
+            $table->foreignId('category_id')->references('id')->on('post_categories');
+            $table->foreignId('post_id')->references('id')->on('posts');
+        });
     }
 
     /**
