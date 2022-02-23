@@ -15,8 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        // Eager loading posts med user
+        $posts = Post::with('user')->get();
         // Hämta och sortera baserat på skapande-datum
-        $posts = Post::latest()->get();
+        // $posts = Post::latest()->get();
 
         // Hämta och sortera i bokstavsordning (titel)
         // $posts = Post::orderBy('title', 'asc')->get();
@@ -95,6 +97,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate([
+            'title' => 'required',
+            'content'   =>  'required',
+        ]);
+
+        $post->update($request->all());
+
         return redirect()
             ->route('posts.show', ['post' => $post])
             ->with('success', 'Post succesfully updated');

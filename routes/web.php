@@ -26,7 +26,6 @@ Auth::routes();
 // Route::get('/posts/{id}', 'PostController@show');
 Route::resource('/posts', PostController::class);
 
-
 /* Protected Routes */
 Route::middleware('auth')->group(function() {
 	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

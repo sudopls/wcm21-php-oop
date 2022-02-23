@@ -17,6 +17,7 @@
 					<p>Welcome {{ auth()->user()->name }}</p>
 
 					{{ __('You are logged in!') }}
+
 				</div>
 			</div>
 		</div>

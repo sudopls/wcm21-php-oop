@@ -9,5 +9,7 @@
 
     <hr>
     <small>Written on {{ $post->created_at }}</small>
+    <br>
+    <span>Author: {{ $post->user->name }}</span>
 </div>
 @endsection
