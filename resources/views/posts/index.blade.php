@@ -1,13 +1,17 @@
+@extends('layouts.app')
 
-<!-- @foreach($posts as $post)
-    @if($post->user == auth()->user())
-
-        <h1>{{ $post->title }}</h1>
-
-        <p>{{ $post->content }}</p>
-
-        {{ $post->user }}
+@section('content')
+<div class="container">
+    <h2>Posts</h2>
+    @if(count($posts) > 1)
+    <div class="row">
+        @foreach ($posts as $post)
+            <div class="col-4">
+                <h3><a href="/posts/{{$post->id}}">{{ $post->title }}</a></h3>
+            </div>
+        @endforeach
+    @else
+        <p>No posts found!</p>
     @endif
-@endforeach -->
-
-{{ auth()->user()->post }}
+</div>
+@endsection

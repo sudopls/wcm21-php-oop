@@ -15,7 +15,14 @@ class PostController extends Controller
      */
     public function index()
     {
+        // Hämta och sortera baserat på skapande-datum
         $posts = Post::latest()->get();
+
+        // Hämta och sortera i bokstavsordning (titel)
+        // $posts = Post::orderBy('title', 'asc')->get();
+
+        // Ni kan också hämta saker baserat på attribut
+        // $posts = Post::where('title', 'titel-ni-söker')->get();
 
         return view('posts/index', [
             'posts' => $posts,
@@ -59,11 +66,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        return view('posts/show', [
-            'post' => $post,
-        ]);
+        $post = Post::find($id);
+
+        return view('posts.show')->with('post', $post);
     }
 
     /**
