@@ -18,7 +18,11 @@
 
 					{{ __('You are logged in!') }}
 
-					{{ $user }}
+					<h4>Your favourite superheroes are:
+					@foreach ($user->heroes as $hero)
+						 {{ $hero->name }} |
+					@endforeach
+					</h4>
 				</div>
 			</div>
 		</div>

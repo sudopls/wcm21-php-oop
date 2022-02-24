@@ -47,8 +47,8 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function hero()
+    public function heroes()
     {
-        return $this->belongsToMany(Hero::class);
+        return $this->belongsToMany(Hero::class, 'hero_user');
     }
 }

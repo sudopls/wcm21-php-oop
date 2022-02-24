@@ -11286,3 +11286,15 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.col-md-8 {
+  background-color: #1fd449;
+}
+.col-md-8 .card {
+  padding: 0.6em;
+}
+.col-md-8 .card .card-header {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.col-md-8 .card .card-body {
+  color: #fed324;
+}

@@ -1,0 +1,16 @@
+.col-md-8 {
+    background-color: $fancy-color;
+
+    .card {
+        padding: 0.6em;
+
+        .card-header{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .card-body {
+            color: $extra-fancy-color;
+        }
+    }
+}
+
