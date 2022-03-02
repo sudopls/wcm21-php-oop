@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Tag;
 use Auth;
 
 class PostController extends Controller
@@ -38,7 +39,13 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts/create');
+        // Get all tags
+        $tags = Tag::all();
+
+        // Return view with $tags
+        return view('posts/create', [
+            'tags'  =>   $tags,
+        ]);
     }
 
     /**
@@ -59,7 +66,10 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect('/posts');
+        // Plockar ut tags->id direkt från $request här. Behöver inte loopa över som vi försökte innan. Kör sedan sync istället för attach, den var lite smidigare pga. Håller koll på våra relationer åt oss!
+        $post->tags()->sync($request->tags);
+
+        return redirect('/posts/create');
     }
 
     /**
@@ -83,6 +93,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $heroes = Hero::class->get();
         return view('posts/edit', [
             'post' => $post
         ]);

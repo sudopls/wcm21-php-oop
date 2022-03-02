@@ -15,8 +15,13 @@ class Hero extends Model
     ];
 
     // flera användare kan ha flera favorithjältar
-    public function user()
-    {
-        return $this->belongsToMany(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->belongsToMany(User::class);
+    // }
+
+    // public function posts()
+    // {
+    //     return $this->belongsToMany(User::class);
+    // }
 }

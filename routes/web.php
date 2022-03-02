@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Auth::routes();
 // Route::get('/posts/create', 'PostController@create');
 // Route::get('/posts/{id}', 'PostController@show');
 Route::resource('/posts', PostController::class);
+
+Route::resource('/tags', TagController::class);
 
 /* Protected Routes */
 Route::middleware('auth')->group(function() {

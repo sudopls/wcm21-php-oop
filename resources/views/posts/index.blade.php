@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Posts</h2>
-    @if(count($posts) > 1)
+    @if(count($posts) >= 1)
     <div class="row">
         @foreach ($posts as $post)
             <div class="col-4">

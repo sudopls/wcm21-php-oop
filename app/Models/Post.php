@@ -22,5 +22,12 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    // Skapa en relation till taggar
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+        // $post->tags(); hämtar alla taggar som har en relation till posten
+    }
+
     // Skapa en relation till kategorier
 }
