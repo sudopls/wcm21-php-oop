@@ -11,5 +11,10 @@
     <small>Written on {{ $post->created_at }}</small>
     <br>
     <span>Author: {{ $post->user->name }}</span>
+    <span>Tags:
+        @foreach ($post->tags as $tag)
+            {{ $tag->title }}
+        @endforeach
+    </span>
 </div>
 @endsection
